@@ -1,0 +1,20 @@
+import mysql.connector
+
+# Establish connection to the MySQL database
+connection = mysql.connector.connect(
+    host="localhost",     # Hostname where the MySQL server is running
+    user="root",  # Your MySQL username
+    password="irdmch",  # Your MySQL password
+    database="unfepi"   # Name of the MySQL database
+)
+# Create a cursor object to execute SQL queries
+cursor = connection.cursor()
+#Define the SQL query to fetch data
+query = "SELECT * FROM child  where mappedId = '9482204 '"  # Replace "your_table" with the name of your table
+
+# Execute the SQL query
+cursor.execute(query)
+rows = cursor.fetchall()
+# Iterate over the rows and print each row
+for row in rows:
+    print(row)
